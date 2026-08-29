@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IzumiRain | حمایت و دونیت ☕🌧️</title>
+  <meta name="description" content="صفحه دونیت و راه‌های حمایت مالی از IzumiRain - دونیت ریالی و ارزهای دیجیتال (TRC20, BEP20, TON)" />
+  <meta name="theme-color" content="#0b0f19" />
+
+  <!-- OpenGraph / Social Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="IzumiRain | حمایت و دونیت ☕🌧️" />
+  <meta property="og:description" content="صفحه دونیت و راه‌های حمایت مالی از IzumiRain (کریپتو و ریالی)" />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/281328330?v=4" />
+
+  <!-- Google Fonts: Vazirmatn (Persian) + JetBrains Mono (Code/Addresses) + Outfit (English/Headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- QR Code Library CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Ambient Rain & Particle Background -->
+  <canvas id="rainCanvas" class="ambient-canvas"></canvas>
+  <div class="ambient-glow glow-top-left"></div>
+  <div class="ambient-glow glow-bottom-right"></div>
+  <div class="ambient-glow glow-center"></div>
+
+  <!-- Background Rain Controller Toggle -->
+  <header class="top-bar">
+    <div class="status-chip">
+      <span class="pulse-dot"></span>
+      <span class="status-text">Vibing &amp; Coding ✨</span>
+    </div>
+    <button id="rainToggleBtn" class="glass-pill-btn" title="تغییر حالت انیمیشن باران" aria-label="تغییر حالت افکت باران">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242M16 14v6m-4-4v6m-4-2v6"/>
+      </svg>
+      <span id="rainBtnLabel" class="btn-label">افکت باران: روشن</span>
+    </button>
+  </header>
+
+  <main class="container">
+    <!-- Profile & Header Section -->
+    <section class="profile-card glass-card">
+      <div class="avatar-wrapper">
+        <div class="avatar-ring"></div>
+        <img 
+          src="https://avatars.githubusercontent.com/u/281328330?v=4" 
+          alt="IzumiRain Avatar" 
+          class="avatar-img"
+          loading="eager"
+          onerror="this.src='https://api.dicebear.com/7.x/bottts-neutral/svg?seed=IzumiRain'"
+        />
+        <div class="online-indicator" title="آماده برای وایب و کد زدن"></div>
+      </div>
+
+      <div class="profile-info">
+        <h1 class="profile-name">
+          <span class="gradient-text">IzumiRain</span>
+          <span class="badge">Vibe Coder</span>
+        </h1>
+        <p class="profile-tagline">
+          برنامه‌نویس که نمیشه گفت؛ تفریحی وایب کدینگ می‌زنم ☕🌧️💻
+        </p>
+        <p class="profile-desc">
+          اگر از پروژه‌هام خوشت اومده یا دوست داری بهم انرژی بدی، می‌تونی از طریق لینک‌های زیر یه قهوه مهمونم کنی!
+        </p>
+
+        <!-- Social Action Buttons -->
+        <div class="social-links">
+          <a href="https://github.com/IzumiRain" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            <span>پروفایل گیت‌هاب</span>
+          </a>
+
+          <a href="https://coffeebede.com/amtherain" target="_blank" rel="noopener noreferrer" class="social-btn coffee-btn">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/>
+            </svg>
+            <span>کافی‌بده (کارت به کارت/شتاب)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rial Donation Section (Featured) -->
+    <section class="section-container">
+      <div class="section-header">
+        <div class="section-icon-badge amber-badge">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/>
+          </svg>
+        </div>
+        <div>
+          <h2 class="section-title">حمایت ریالی (کافی‌بده ☕)</h2>
+          <p class="section-subtitle">پرداخت آنلاین و امن با کلیه کارت‌های عضو شتاب</p>
+        </div>
+      </div>
+
+      <div class="rial-featured-card glass-card">
+        <div class="rial-card-bg-glow"></div>
+        <div class="rial-card-content">
+          <div class="coffee-animation-box">
+            <div class="steam steam-1"></div>
+            <div class="steam steam-2"></div>
+            <div class="steam steam-3"></div>
+            <span class="coffee-emoji">☕</span>
+          </div>
+
+          <div class="rial-card-text">
+            <div class="rial-tag">دونیت آسان و سریع ریالی</div>
+            <h3 class="rial-title">یک فنجان قهوه برای IzumiRain</h3>
+            <p class="rial-desc">
+              می‌تونی از درگاه امن و دوست‌داشتنی <strong>CoffeeBede</strong> به هر مبلغ دلخواهی با کارت شتاب انرژی بفرستی و پیام بذاری!
+            </p>
+            <div class="coffee-url-preview">
+              <span class="url-label">آدرس صفحه:</span>
+              <code class="url-code">coffeebede.com/amtherain</code>
+            </div>
+          </div>
+
+          <div class="rial-card-action">
+            <a href="https://coffeebede.com/amtherain" target="_blank" rel="noopener noreferrer" class="primary-action-btn pulse-button">
+              <span>خرید قهوه در کافی‌بده</span>
+              <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <button class="secondary-copy-btn" data-copy="https://coffeebede.com/amtherain" title="کپی لینک کافی‌بده">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>کپی لینک</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Crypto Donation Section -->
+    <section class="section-container">
+      <div class="section-header">
+        <div class="section-icon-badge cyan-badge">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div>
+          <h2 class="section-title">حمایت با رمزارز (Crypto Donations 💎)</h2>
+          <p class="section-subtitle">انتقال سریع و مستقیم روی شبکه‌های مختلف با کمترین کارمزد</p>
+        </div>
+      </div>
+
+      <div class="crypto-grid">
+        <!-- 1. TRC20 (Tron) -->
+        <div class="crypto-card glass-card tron-theme">
+          <div class="crypto-card-header">
+            <div class="crypto-brand">
+              <div class="crypto-icon-box tron-icon">
+                <!-- Tron Icon -->
+                <svg viewBox="0 0 32 32" class="crypto-svg">
+                  <path fill="#FF060A" d="M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16z"/>
+                  <path fill="#FFF" d="M6 7.82l18.528 5.75L13.9 25.82 6 7.82zm1.886 1.76l6.05 13.754 8.766-8.73-14.816-5.024zm12.39 3.033l3.053-.948-9.08-2.82 6.027 3.768z"/>
+                </svg>
+              </div>
+              <div class="crypto-name-meta">
+                <div class="crypto-title-row">
+                  <h3 class="crypto-name">TRC20</h3>
+                  <span class="network-pill tron-pill">Tron Network</span>
+                </div>
+                <span class="crypto-accepted">USDT / TRX</span>
+              </div>
+            </div>
+            <button class="qr-btn" data-network="TRC20 (Tron)" data-address="TKBHWNoeygcaCK8N78e7dQX5Yco3WTb6ZN" data-currency="USDT-TRC20" title="نمایش بارکد QR">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+              <span>QR Code</span>
+            </button>
+          </div>
+
+          <div class="address-box-wrapper">
+            <span class="address-label">آدرس ولت (Wallet Address):</span>
+            <div class="address-box" dir="ltr">
+              <code class="wallet-address" id="addr-trc20">TKBHWNoeygcaCK8N78e7dQX5Yco3WTb6ZN</code>
+            </div>
+          </div>
+
+          <div class="crypto-card-actions">
+            <button class="copy-wallet-btn" data-copy="TKBHWNoeygcaCK8N78e7dQX5Yco3WTb6ZN" data-name="TRC20 (Tron)">
+              <svg class="icon copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span class="btn-text">کپی آدرس ولت</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. BEP20 (BNB Smart Chain) -->
+        <div class="crypto-card glass-card bsc-theme">
+          <div class="crypto-card-header">
+            <div class="crypto-brand">
+              <div class="crypto-icon-box bsc-icon">
+                <!-- BNB Icon -->
+                <svg viewBox="0 0 32 32" class="crypto-svg">
+                  <path fill="#F3BA2F" d="M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16z"/>
+                  <path fill="#FFF" d="M12.115 13.987l3.885-3.885 3.885 3.885 2.26-2.26L16 5.582 9.855 11.727l2.26 2.26zm-6.533 2.013l2.26-2.26 2.26 2.26-2.26 2.26-2.26-2.26zm16.536 0l2.26-2.26 2.26 2.26-2.26 2.26-2.26-2.26zm-6.118 2.013l-3.885-3.885 3.885-3.885 3.885 3.885-3.885 3.885zm-3.885 2.013l3.885 3.885 3.885-3.885 2.26 2.26L16 26.418l-6.145-6.145 2.26-2.26z"/>
+                </svg>
+              </div>
+              <div class="crypto-name-meta">
+                <div class="crypto-title-row">
+                  <h3 class="crypto-name">BEP20</h3>
+                  <span class="network-pill bsc-pill">BNB Smart Chain</span>
+                </div>
+                <span class="crypto-accepted">USDT / BNB / BUSD / ETH</span>
+              </div>
+            </div>
+            <button class="qr-btn" data-network="BEP20 (BNB Smart Chain)" data-address="0x0F982640a69D3B9FB944840D7DA8bECCfcF0bb9E" data-currency="USDT-BEP20 / BNB" title="نمایش بارکد QR">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+              <span>QR Code</span>
+            </button>
+          </div>
+
+          <div class="address-box-wrapper">
+            <span class="address-label">آدرس ولت (Wallet Address):</span>
+            <div class="address-box" dir="ltr">
+              <code class="wallet-address" id="addr-bep20">0x0F982640a69D3B9FB944840D7DA8bECCfcF0bb9E</code>
+            </div>
+          </div>
+
+          <div class="crypto-card-actions">
+            <button class="copy-wallet-btn" data-copy="0x0F982640a69D3B9FB944840D7DA8bECCfcF0bb9E" data-name="BEP20 (BNB Chain)">
+              <svg class="icon copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span class="btn-text">کپی آدرس ولت</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. TON (The Open Network) -->
+        <div class="crypto-card glass-card ton-theme">
+          <div class="crypto-card-header">
+            <div class="crypto-brand">
+              <div class="crypto-icon-box ton-icon">
+                <!-- TON Icon -->
+                <svg viewBox="0 0 32 32" class="crypto-svg">
+                  <path fill="#0098EA" d="M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16z"/>
+                  <path fill="#FFF" d="M23.95 9.774l-6.866 14.15a1.233 1.233 0 0 1-2.168 0L8.05 9.774a1.233 1.233 0 0 1 1.084-1.807h13.732a1.233 1.233 0 0 1 1.084 1.807zm-7.95 10.998l4.47-9.212H11.53l4.47 9.212z"/>
+                </svg>
+              </div>
+              <div class="crypto-name-meta">
+                <div class="crypto-title-row">
+                  <h3 class="crypto-name">TON</h3>
+                  <span class="network-pill ton-pill">The Open Network</span>
+                </div>
+                <span class="crypto-accepted">TON / USDT-TON / Notcoin</span>
+              </div>
+            </div>
+            <button class="qr-btn" data-network="TON (The Open Network)" data-address="UQAyLUyxew-eggwhxbzsAZZZ9ULM8MYOk-3IXFh7tNC33LNt" data-currency="TON / USDT" title="نمایش بارکد QR">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+              <span>QR Code</span>
+            </button>
+          </div>
+
+          <div class="address-box-wrapper">
+            <span class="address-label">آدرس ولت (Wallet Address):</span>
+            <div class="address-box" dir="ltr">
+              <code class="wallet-address" id="addr-ton">UQAyLUyxew-eggwhxbzsAZZZ9ULM8MYOk-3IXFh7tNC33LNt</code>
+            </div>
+          </div>
+
+          <div class="crypto-card-actions">
+            <button class="copy-wallet-btn" data-copy="UQAyLUyxew-eggwhxbzsAZZZ9ULM8MYOk-3IXFh7tNC33LNt" data-name="TON">
+              <svg class="icon copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span class="btn-text">کپی آدرس ولت</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer glass-card">
+      <div class="footer-content">
+        <p class="footer-heart">
+          ساخته شده با ☕ و حس خوب توسط <a href="https://github.com/IzumiRain" target="_blank" rel="noopener noreferrer" class="footer-author">IzumiRain</a>
+        </p>
+        <p class="footer-note">
+          از اینکه همراهی و انرژی می‌دی خیلی ممنونم! 🌧️💙
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Native HTML5 Dialog Modal for QR Code Display -->
+  <dialog id="qrModal" class="glass-dialog">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3 id="modalNetworkTitle" class="modal-title">QR Code آدرس ولت</h3>
+          <span id="modalCurrencyBadge" class="network-pill">USDT</span>
+        </div>
+        <button id="closeModalBtn" class="close-modal-btn" aria-label="بستن پنجره">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="qr-canvas-wrapper">
+          <div id="qrLoading" class="qr-loader">در حال ساخت QR Code...</div>
+          <canvas id="modalQrCanvas" class="qr-canvas"></canvas>
+        </div>
+
+        <p class="modal-tip">با دوربین یا برنامه ولت گوشی خود بارکد بالا را اسکن کنید</p>
+
+        <div class="modal-address-box" dir="ltr">
+          <span id="modalAddressText" class="modal-address-code"></span>
+        </div>
+
+        <button id="modalCopyBtn" class="primary-action-btn full-width">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span id="modalCopyBtnText">کپی کردن آدرس</span>
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- JavaScript Application Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
